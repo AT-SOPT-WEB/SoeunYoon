@@ -1,0 +1,33 @@
+h1{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(77, 77, 77);
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.nav-title{
+    color: rgb(140, 140, 255);
+}
+
+.nav-second-title{
+    color: rgb(187, 0, 255);
+}
+
+section{
+    padding-top: 120px;
+}
+
+ul{
+    display: flex;
+    gap: 2%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+img{
+    width: 200px;
+    margin-top: 20px;
+}
