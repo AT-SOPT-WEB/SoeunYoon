@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonne Blog</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="./images/logo.png" alt="로고" />
+    <h1>Sonne Blog</h1>
+    <img src="./images/menu-toggle.svg" alt="메뉴" />
+  </header>
+
+  <aside class="sidebar">
+    <p class="category-title">분류</p>
+    <button onclick="document.getElementById('전체').scrollIntoView({behavior: 'smooth'})">전체</button>
+    <button onclick="document.getElementById('일상').scrollIntoView({behavior: 'smooth'})">일상</button>
+    <button onclick="document.getElementById('개발').scrollIntoView({behavior: 'smooth'})">개발</button>
+  </aside>
+
+  <main>
+    <section class="intro-banner">
+        <h2>안녕하세요!!</h2>
+        <div class="image-grid">
+          <img src="./images/intro1.jpg" alt="이미지1" class="item item1" />
+          <img src="./images/intro2.jpg" alt="이미지2" class="item item2" />
+          <img src="./images/intro3.png" alt="이미지3" class="item item3" />
+          <img src="./images/intro4.jpg" alt="이미지4" class="item item4" />
+          <img src="./images/intro5.png" alt="이미지5" class="item item5" />
+        </div>        
+      </section>
+
+    <section id="전체">
+      <h2>전체</h2>
+      <div class="card-container">
+        <div class="card"><img src="https://via.placeholder.com/200x150" alt=""><p class="title">1</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
+        <div class="card"><img src="https://via.placeholder.com/200x150" alt=""><p class="title">2</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
+      </div>
+    </section>
+
+    <section id="일상">
+      <h2>일상</h2>
+      <div class="card-container">
+        <div class="card"><img src="https://via.placeholder.com/200x150" alt=""><p class="title">3</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
+        <div class="card"><img src="https://via.placeholder.com/200x150" alt=""><p class="title">4</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
+      </div>
+    </section>
+
+    <section id="개발">
+      <h2>개발</h2>
+      <div class="card-container">
+        <div class="card"><img src="https://via.placeholder.com/200x150" alt=""><p class="title">5</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
+        <div class="card"><img src="https://via.placeholder.com/200x150" alt=""><p class="title">6</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
+      </div>
+    </section>
+    <section>
+      이미지 슬라이드 영역
+    </section>
+  </main>
+  <footer>
+    ©SONNE 2025
+  </footer>
+</body>
+</html>
