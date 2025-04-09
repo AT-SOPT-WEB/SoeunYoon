@@ -72,7 +72,16 @@
   
   section {
     margin-bottom: 4rem;
+    margin-top: 5%;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #e0e0e0;
   }
+
+  section:last-of-type {
+    background-color: transparent;
+  }
+  
   
   .card-container {
     display: grid;
@@ -184,3 +193,32 @@
     background-color: rgb(187, 187, 187);
     font-size: 1rem;
   }
+  .infinite-slider {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 50px;
+  }
+  
+  .slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 20s linear infinite;
+  }
+  
+  .slider-track img {
+    width: 250px;
+    object-fit: cover;
+    margin: 0 15px;
+    border-radius: 5px;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
