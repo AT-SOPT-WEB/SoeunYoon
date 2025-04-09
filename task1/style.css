@@ -104,7 +104,7 @@
   
   .card img {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -123,15 +123,24 @@
   .heart {
     background: none;
     border: none;
-    font-size: 1.2rem;
-    color: black;
+    font-size: 1.3rem;
     cursor: pointer;
-    transition: color 0.3s ease;
+    color: transparent;
   }
   
-  .heart:hover {
+  .heart::before {
+    content: attr(data-heart);
+    top: 0;
+    left: 0;
+    color: black;
+    transition: all 0.3s ease;
+  }
+  
+  .heart:hover::before {
+    content: "🩷";
     color: red;
   }
+  
   
   .intro-banner {
     margin-top: 5%;
