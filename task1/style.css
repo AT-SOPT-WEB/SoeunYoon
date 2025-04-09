@@ -81,6 +81,10 @@
   section:last-of-type {
     background-color: transparent;
   }
+
+  section h2{
+    margin-bottom: 30px;
+  }
   
   
   .card-container {
@@ -151,9 +155,18 @@
   
   .intro-banner h2 {
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
   }
+
+  .intro-banner span {
+    background-color: #ff88d9b0;
+    padding: 0.1em 0.2em;
+    border-radius: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+  
   
   .image-grid {
     display: grid;
