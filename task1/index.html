@@ -6,80 +6,82 @@
   <title>Sonne Blog</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="./images/logo.png" type="image/png" />
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 </head>
 <body>
   <header>
     <img src="./images/logo.png" alt="로고" />
     <h1>Sonne Blog</h1>
-    <img src="./images/menu-toggle.svg" alt="메뉴" />
+    <button><i class="fi fi-br-menu-burger"></i></button>
   </header>
-  <aside class="sidebar">
+  <nav class="sidebar">
     <p class="category-title">분류</p>
     <a class="nav-btn top" href="#전체">전체</a>
     <a class="nav-btn" href="#일상">일상</a>
     <a class="nav-btn bottom" href="#개발">개발</a>
-  </aside>
+  </nav>
   
   <main>
-    <section class="intro-banner">
+    <section class="intro-banner" aria-labelledby="daily-title">
         <h2>안녕하세요, <span>Sonne Blog</span>에 오신 걸 환영합니다.</h2>
         <div class="image-grid">
-          <img src="./images/intro1.jpg" alt="이미지1" class="item item1" />
-          <img src="./images/intro2.jpg" alt="이미지2" class="item item2" />
-          <img src="./images/intro3.png" alt="이미지3" class="item item3" />
-          <img src="./images/intro4.jpg" alt="이미지4" class="item item4" />
-          <img src="./images/intro5.png" alt="이미지5" class="item item5" />
+          <img src="./images/intro1.jpg" alt="이미지1" class="item item1" loading="lazy" />
+          <img src="./images/intro2.jpg" alt="이미지2" class="item item2" loading="lazy" />
+          <img src="./images/intro3.png" alt="이미지3" class="item item3" loading="lazy" />
+          <img src="./images/intro4.jpg" alt="이미지4" class="item item4" loading="lazy" />
+          <img src="./images/intro5.png" alt="이미지5" class="item item5" loading="lazy" />
         </div>        
       </section>
 
-    <section id="전체">
+    <section id="전체" aria-labelledby="daily-title">
       <h2>All</h2>
-      <div class="card-container">
-        <div class="card"><img src="./images/cat3.jpg" alt="고양이1"><p class="title">고양이1</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/cat4.jpg" alt="고양이2"><p class="title">고양이2</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/cat1.jpg" alt="고양이3"><p class="title">고양이3</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/cat2.jpg" alt="고양이4"><p class="title">고양이4</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev1.jpeg" alt="개발1"><p class="title">개발1</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev2.jpg" alt="개발2"><p class="title">개발2</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev3.png" alt="개발3"><p class="title">개발3</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev4.jpg" alt="개발4"><p class="title">개발4</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-      </div>
+      <section class="card-container">
+        <article class="card"><img src="./images/cat3.jpg" alt="고양이1" loading="lazy"><p class="title">고양이1</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/cat4.jpg" alt="고양이2" loading="lazy"><p class="title">고양이2</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/cat1.jpg" alt="고양이3" loading="lazy"><p class="title">고양이3</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/cat2.jpg" alt="고양이4" loading="lazy"><p class="title">고양이4</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev1.jpeg" alt="개발1" loading="lazy"><p class="title">개발1</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev2.jpg" alt="개발2" loading="lazy"><p class="title">개발2</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev3.png" alt="개발3" loading="lazy"><p class="title">개발3</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev4.jpg" alt="개발4" loading="lazy"><p class="title">개발4</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+      </section>
     </section>
 
-    <section id="일상">
+    <section id="일상" aria-labelledby="daily-title">
       <h2>Daily</h2>
-      <div class="card-container">
-        <div class="card"><img src="./images/cat3.jpg" alt="고양이1"><p class="title">고양이1</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/cat4.jpg" alt="고양이2"><p class="title">고양이2</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/cat1.jpg" alt="고양이3"><p class="title">고양이3</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/cat2.jpg" alt="고양이4"><p class="title">고양이4</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-      </div>
+      <section class="card-container">
+        <article class="card"><img src="./images/cat3.jpg" alt="고양이1" loading="lazy"><p class="title">고양이1</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/cat4.jpg" alt="고양이2" loading="lazy"><p class="title">고양이2</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <darticleiv class="card"><img src="./images/cat1.jpg" alt="고양이3" loading="lazy"><p class="title">고양이3</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></darticleiv>
+        <article class="card"><img src="./images/cat2.jpg" alt="고양이4" loading="lazy"><p class="title">고양이4</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+      </section>
     </section>
 
-    <section id="개발">
+    <section id="개발" aria-labelledby="daily-title">
       <h2>Dev</h2>
-      <div class="card-container">
-        <div class="card"><img src="./images/dev1.jpeg" alt="개발1"><p class="title">개발1</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev2.jpg" alt="개발2"><p class="title">개발2</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev3.png" alt="개발3"><p class="title">개발3</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-        <div class="card"><img src="./images/dev4.jpg" alt="개발4"><p class="title">개발4</p><p class="likes">좋아요 12개</p><button class="heart">♥</button></div>
-      </div>
+      <section class="card-container">
+        <article class="card"><img src="./images/dev1.jpeg" alt="개발1" loading="lazy"><p class="title">개발1</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev2.jpg" alt="개발2" loading="lazy"><p class="title">개발2</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev3.png" alt="개발3" loading="lazy"><p class="title">개발3</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+        <article class="card"><img src="./images/dev4.jpg" alt="개발4" loading="lazy"><p class="title">개발4</p><p class="likes">좋아요 12개</p><button class="heart"><i class="fi fi-ss-heart"></i></button></article>
+      </section>
     </section>
 
-    <section class="infinite-slider">
+    <section class="infinite-slider" aria-labelledby="daily-title">
       <div class="slider-track">
-        <img src="./images/blur1.jpg" alt="slide1">
-        <img src="./images/blur2.jpg" alt="slide2">
-        <img src="./images/blur3.jpg" alt="slide3">
-        <img src="./images/blur4.png" alt="slide4">
-        <img src="./images/blur5.jpg" alt="slide5">
-        <img src="./images/blur6.jpg" alt="slide6">
-        <img src="./images/blur1.jpg" alt="slide1">
-        <img src="./images/blur2.jpg" alt="slide2">
-        <img src="./images/blur3.jpg" alt="slide3">
-        <img src="./images/blur4.png" alt="slide4">
-        <img src="./images/blur5.jpg" alt="slide5">
-        <img src="./images/blur6.jpg" alt="slide6">
+        <img src="./images/blur1.jpg" alt="slide1" loading="lazy">
+        <img src="./images/blur2.jpg" alt="slide2" loading="lazy">
+        <img src="./images/blur3.jpg" alt="slide3" loading="lazy">
+        <img src="./images/blur4.png" alt="slide4" loading="lazy">
+        <img src="./images/blur5.jpg" alt="slide5" loading="lazy">
+        <img src="./images/blur6.jpg" alt="slide6" loading="lazy">
+        <img src="./images/blur1.jpg" alt="slide1" loading="lazy">
+        <img src="./images/blur2.jpg" alt="slide2" loading="lazy">
+        <img src="./images/blur3.jpg" alt="slide3" loading="lazy">
+        <img src="./images/blur4.png" alt="slide4" loading="lazy">
+        <img src="./images/blur5.jpg" alt="slide5" loading="lazy">
+        <img src="./images/blur6.jpg" alt="slide6" loading="lazy">
       </div>
     </section>
   </main>

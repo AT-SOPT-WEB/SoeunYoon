@@ -38,6 +38,11 @@
     max-width: 30px;
   }
   
+  header button {
+    all: unset;
+    cursor: pointer;
+    color: white;
+  }  
 
   .sidebar {
     position: fixed;
@@ -151,14 +156,13 @@
     background: none;
     border: none;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: color 0.2s ease;
-    transform: scaleX(1.2);
   }
 
   .heart:hover {
-    color: red;
+    color: #FF6161;
   }
   
   .intro-banner {
