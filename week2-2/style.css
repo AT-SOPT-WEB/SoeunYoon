@@ -1,0 +1,25 @@
+/*스타일 맘에 안 들어서 추가하긔..*/
+  body {
+      font-family: 'Arial', sans-serif;
+      padding: 2rem;
+    }
+    h1, h2 {
+      font-weight: bold;
+    }
+    input {
+      padding: 0.4rem;
+      width: 200px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.4rem 0.8rem;
+      font-size: 1rem;
+      margin-left: 5px;
+    }
+    ul {
+      margin-top: 1rem;
+    }
+    li {
+      font-size: 1.1rem;
+      margin: 0.3rem 0;
+    }
