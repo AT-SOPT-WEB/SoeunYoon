@@ -3,6 +3,7 @@ import { todos as initialTodos } from './data.js';
 let todos = JSON.parse(localStorage.getItem('todos')) || initialTodos;
 localStorage.setItem('todos', JSON.stringify(todos));
 
+// 커스텀 알럿 모달 표시 함수
 function showAlert(message, title = '알림') {
   const modal = document.getElementById('custom-alert');
   modal.classList.remove('hidden');
@@ -15,6 +16,7 @@ function showAlert(message, title = '알림') {
   };
 }
 
+// 테이블 렌더링 함수
 function renderTable(data = todos) {
   const table = document.getElementById('todo-body');
   table.innerHTML = '';
@@ -28,6 +30,7 @@ function renderTable(data = todos) {
       <td>${todo.title}</td>
     `;
 
+    // Drag & Drop 이벤트 등록
     row.setAttribute('draggable', true);
     row.setAttribute('data-id', todo.id);
     row.addEventListener('dragstart', handleDragStart);
@@ -40,6 +43,37 @@ function renderTable(data = todos) {
 }
 renderTable();
 
+
+// 중요도 드롭다운 토글 (필터)
+window.toggleDropdown = () => {
+  const dropdown = document.getElementById('priority-dropdown');
+  dropdown.classList.toggle('show');
+};
+
+// 중요도 드롭다운 외부 클릭 시 닫기
+document.addEventListener('click', (e) => {
+  const dropdownWrapper = document.querySelector('.dropdown');
+  const dropdown = document.getElementById('priority-dropdown');
+
+  if (!dropdownWrapper.contains(e.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+// 중요도 선택 드롭다운 (입력) 토글
+window.toggleSelectDropdown = function () {
+  const dropdown = document.getElementById("select-dropdown");
+  dropdown.classList.toggle("show");
+};
+
+// 중요도 선택 드롭다운에서 값 선택
+window.selectPriority = function (priority) {
+  const selectedText = document.getElementById("selected-priority");
+  selectedText.textContent = priority;
+  document.getElementById("select-dropdown").classList.remove("show");
+};
+
+// 할 일 추가 버튼 클릭 이벤트
 document.getElementById('add-btn').addEventListener('click', () => {
   const title = document.getElementById('todo-input').value.trim();
   const priorityText = document.getElementById('selected-priority').textContent.trim();
@@ -64,17 +98,19 @@ document.getElementById('add-btn').addEventListener('click', () => {
   document.getElementById('selected-priority').textContent = '중요도 선택';
 });
 
-
+// 필터링 함수 (전체 / 완료됨 / 미완료)
 window.filterTodos = (type) => {
   if (type === 'completed') renderTable(todos.filter(t => t.completed));
   else if (type === 'incomplete') renderTable(todos.filter(t => !t.completed));
   else renderTable();
 };
 
+// 중요도 필터 함수
 window.filterPriority = (priority) => {
   renderTable(todos.filter(t => t.priority == priority));
 };
 
+// 선택 항목 삭제 처리 함수
 window.deleteTodos = () => {
   const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
   const ids = Array.from(checkboxes).map(cb => +cb.dataset.id);
@@ -83,6 +119,7 @@ window.deleteTodos = () => {
   renderTable();
 };
 
+// 선택 항목 완료 처리 함수
 window.completeTodos = () => {
   const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
   const ids = Array.from(checkboxes).map(cb => +cb.dataset.id);
@@ -95,11 +132,13 @@ window.completeTodos = () => {
   renderTable();
 };
 
+// 전체 선택 / 해제 토글 함수
 window.toggleAll = (el) => {
   const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
   checkboxes.forEach(cb => cb.checked = el.checked);
 };
 
+// Drag & Drop
 let dragSrcEl = null;
 
 function handleDragStart(e) {
@@ -120,7 +159,6 @@ function handleDragOver(e) {
   }
 }
 
-
 function handleDrop(e) {
   e.preventDefault();
   if (!dragSrcEl || dragSrcEl === this) return;
@@ -138,29 +176,6 @@ function handleDrop(e) {
   renderTable();
 }
 
-window.toggleDropdown = () => {
-  const dropdown = document.getElementById('priority-dropdown');
-  dropdown.classList.toggle('show');
-};
-
-document.addEventListener('click', (e) => {
-  const toggleBtn = document.getElementById('priority-toggle');
-  const dropdown = document.getElementById('priority-dropdown');
-  if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
-    dropdown.classList.remove('show');
-  }
-});
-
-window.toggleSelectDropdown = function () {
-  const dropdown = document.getElementById("select-dropdown");
-  dropdown.classList.toggle("show");
-};
-
-window.selectPriority = function (priority) {
-  const selectedText = document.getElementById("selected-priority");
-  selectedText.textContent = priority;
-  document.getElementById("select-dropdown").classList.remove("show");
-};
 
 function handleDragEnd() {
   this.classList.remove('dragging');
