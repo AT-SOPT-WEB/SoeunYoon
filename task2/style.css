@@ -3,7 +3,6 @@
   }
   
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f3f0fa;
     margin: 0;
     padding: 20px;
@@ -42,6 +41,12 @@
     transition: background-color 0.2s ease;
   }
   
+  #priority-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
   .filter-buttons button:hover,
   .dropbtn:hover {
     background-color: #9575cd;
@@ -53,6 +58,7 @@
   
   .dropdown-content {
     display: none;
+    margin-top: 3px;
     position: absolute;
     background-color: white;
     border-radius: 6px;
