@@ -14,8 +14,10 @@
   />
 </head>
 <body>
-  <header>
-    <h1>📋 TODO LIST</h1>
+  <header><h1>TODO LIST</h1></header>
+  <main>
+  <section class="title-section">
+    <h1>📋 마구마구 리스트</h1>
     <div class="filter-buttons">
       <button onclick="filterTodos('all')">전체</button>
       <button onclick="filterTodos('completed')">완료됨</button>
@@ -32,9 +34,8 @@
         </div>
       </div>      
     </div>
-  </header>
+  </section>
 
-  <main>
   <div id="row">
   <section class="input-section">
     <input type="text" id="todo-input" placeholder="할 일을 입력하세요" />

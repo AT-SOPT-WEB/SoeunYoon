@@ -1,5 +1,5 @@
-/* 필터 버튼, 드롭다운 */
-.filter-buttons {
+  /* 필터 버튼, 드롭다운 */
+  .filter-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

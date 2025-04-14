@@ -1,21 +1,47 @@
 /* 레이아웃 정의 */
- header {
+ .title-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.2rem;
-    margin-bottom: 1.7em;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
   }
   
-  header h1 {
-    font-size: 2.4rem;
+  .title-section h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
     color: #5e35b1;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  header{
+    position: fixed;
+    top: 0;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    background-color: rgb(230, 219, 255);
+  }
+
+  header h1{
+    font-size: 1.2rem;
+
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: #999;
+    font-size: 1.2rem;
   }
   
   main{
     max-width: 80%;
     margin: 0 auto;
+    margin-top: 5vh;
   }
 
   .todo-table {
