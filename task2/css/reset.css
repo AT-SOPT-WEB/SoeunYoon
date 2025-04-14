@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    background: #f3f0fa;
+    margin: 0;
+    padding: 20px;
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  }
+
+  :root {
+    /* Purple Theme */
+    --purple-main: #9575cd;
+    --purple-light: #b39ddb;
+    --purple-bg: #ddcdf2;
+
+    /* Blue Buttons */
+    --blue-main: #5384d4;
+    --blue-hover:  #456eb1;
+  
+    /* Red Buttons */
+    --red-main: #de5656;
+    --red-hover: #b84545;
+  
+    /* Alert Colors */
+    --alert-bg: #DC9FF0;
+    --alert-hover: #CE85E8;
+    --alert-active: #B76CD6;
+  
+    /* Text, Background Colors */
+    --text-dark: #222;
+    --text-light: #444;
+  
+    --border-gray: #ddd;
+    --hover-bg: #ede7f6;
+  }
+  
+

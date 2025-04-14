@@ -1,22 +1,4 @@
-/* 레이아웃 정의 */
- .title-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6rem;
-    margin-bottom: 2.4rem;
-  }
-  
-  .title-section h1 {
-    font-size: 2.6rem;
-    font-weight: bold;
-    color: #514075;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  
+/* 레이아웃 정의 */  
   header{
     position: fixed;
     top: 0;
@@ -28,20 +10,35 @@
 
   header h1{
     font-size: 1.2rem;
-
-  }
-
-  footer {
-    text-align: center;
-    margin-top: 4rem;
-    color: #999;
-    font-size: 1.2rem;
   }
   
   main{
     max-width: 80%;
     margin: 0 auto;
     margin-top: 5vh;
+  }
+
+  ::selection {
+    background-color: var(--purple-main);
+    color: white;
+  }  
+
+  .title-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+  }
+  
+  .title-section h1 {
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
   }
 
   .todo-table {
@@ -58,7 +55,7 @@
   }
   
   thead {
-    background-color: #b39ddb;
+    background-color: var(--purple-light);
     color: white;
   }
   
@@ -82,10 +79,17 @@
     width: 20%;
   }
 
-  #row {
+  #form-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: auto;
     width: 100%;
+  }
+  
+  footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--text-light);
+    font-size: 1.2rem;
   }
