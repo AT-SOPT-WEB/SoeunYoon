@@ -1,21 +1,36 @@
   /* 필터 버튼, 드롭다운 */
   .filter-buttons {
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
   }
   
   .filter-buttons button,
   .dropbtn {
     padding: 8px 16px;
-    background-color: #b39ddb;
-    color: white;
+    background-color: #ebe5f7;
+    color: #222;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1.4rem;
     transition: background-color 0.2s ease;
   }
+
+  .dropbtn:focus {
+    border-color: #9575cd;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.2);
+  }
+
+  .filter-buttons button:focus {
+    border-color: #9575cd;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.2);
+  }
+
 
   #priority-toggle {
     display: flex;
@@ -90,11 +105,6 @@
     background-color: #ede7f6;
   }
   
-  .filter-buttons button:hover,
-  .dropbtn:hover {
-    background-color: #9575cd;
-  }
-  
   .dropdown {
     position: relative;
   }
@@ -166,7 +176,11 @@
   .input-section button:hover {
     background-color: #9575cd;
   }
-   
+  
+  .todo-table{
+    font-size: 1.3rem;
+  }
+
   /* 체크박스 */ 
   input[type="checkbox"] {
     width: 1.6rem;
