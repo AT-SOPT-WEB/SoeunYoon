@@ -91,7 +91,17 @@ function handleDragStart(e) {
 
 function handleDragOver(e) {
   e.preventDefault();
+
+  const draggingRow = document.querySelector('.drop-target');
+  if (draggingRow && draggingRow !== this) {
+    draggingRow.classList.remove('drop-target');
+  }
+
+  if (dragSrcEl !== this) {
+    this.classList.add('drop-target');
+  }
 }
+
 
 function handleDrop(e) {
   e.preventDefault();
@@ -110,6 +120,9 @@ function handleDrop(e) {
   renderTable();
 }
 
+
 function handleDragEnd() {
   this.classList.remove('dragging');
+  const dropTarget = document.querySelector('.drop-target');
+  if (dropTarget) dropTarget.classList.remove('drop-target');
 }
