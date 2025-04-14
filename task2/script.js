@@ -3,6 +3,18 @@ import { todos as initialTodos } from './data.js';
 let todos = JSON.parse(localStorage.getItem('todos')) || initialTodos;
 localStorage.setItem('todos', JSON.stringify(todos));
 
+function showAlert(message, title = '알림') {
+  const modal = document.getElementById('custom-alert');
+  modal.classList.remove('hidden');
+  modal.querySelector('.alert-title').textContent = title;
+  modal.querySelector('.alert-message').textContent = message;
+
+  const confirmBtn = modal.querySelector('.alert-confirm');
+  confirmBtn.onclick = () => {
+    modal.classList.add('hidden');
+  };
+}
+
 function renderTable(data = todos) {
   const table = document.getElementById('todo-body');
   table.innerHTML = '';
@@ -32,7 +44,7 @@ document.getElementById('add-btn').addEventListener('click', () => {
   const title = document.getElementById('todo-input').value.trim();
   const priority = document.getElementById('priority-select').value;
 
-  if (!title || !priority) return alert('모든 값을 입력해주세요!');
+  if (!title || !priority) return showAlert('모든 값을 입력해주세요!', '입력 누락');
 
   const newTodo = {
     id: Date.now(),
@@ -70,7 +82,7 @@ window.completeTodos = () => {
   const ids = Array.from(checkboxes).map(cb => +cb.dataset.id);
 
   const hasCompleted = todos.some(t => ids.includes(t.id) && t.completed);
-  if (hasCompleted) return alert('이미 완료된 항목이 포함되어 있습니다.');
+  if (hasCompleted) return showAlert('이미 완료된 항목이 포함되어 있습니다.', '중복 완료');
 
   todos = todos.map(todo => ids.includes(todo.id) ? { ...todo, completed: true } : todo);
   localStorage.setItem('todos', JSON.stringify(todos));
