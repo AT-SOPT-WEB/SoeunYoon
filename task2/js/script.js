@@ -42,9 +42,12 @@ renderTable();
 
 document.getElementById('add-btn').addEventListener('click', () => {
   const title = document.getElementById('todo-input').value.trim();
-  const priority = document.getElementById('priority-select').value;
+  const priorityText = document.getElementById('selected-priority').textContent.trim();
+  const priority = ['1', '2', '3'].includes(priorityText) ? priorityText : '';
 
-  if (!title || !priority) return showAlert('모든 값을 입력해주세요!', '입력 누락');
+  if (!title || !priority) {
+    return showAlert('모든 값을 입력해주세요!', '입력 누락');
+  }
 
   const newTodo = {
     id: Date.now(),
@@ -52,12 +55,15 @@ document.getElementById('add-btn').addEventListener('click', () => {
     completed: false,
     priority: parseInt(priority)
   };
+
   todos.push(newTodo);
   localStorage.setItem('todos', JSON.stringify(todos));
   renderTable();
+
   document.getElementById('todo-input').value = '';
-  document.getElementById('priority-select').value = '';
+  document.getElementById('selected-priority').textContent = '중요도 선택';
 });
+
 
 window.filterTodos = (type) => {
   if (type === 'completed') renderTable(todos.filter(t => t.completed));
@@ -132,6 +138,29 @@ function handleDrop(e) {
   renderTable();
 }
 
+window.toggleDropdown = () => {
+  const dropdown = document.getElementById('priority-dropdown');
+  dropdown.classList.toggle('show');
+};
+
+document.addEventListener('click', (e) => {
+  const toggleBtn = document.getElementById('priority-toggle');
+  const dropdown = document.getElementById('priority-dropdown');
+  if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+window.toggleSelectDropdown = function () {
+  const dropdown = document.getElementById("select-dropdown");
+  dropdown.classList.toggle("show");
+};
+
+window.selectPriority = function (priority) {
+  const selectedText = document.getElementById("selected-priority");
+  selectedText.textContent = priority;
+  document.getElementById("select-dropdown").classList.remove("show");
+};
 
 function handleDragEnd() {
   this.classList.remove('dragging');
