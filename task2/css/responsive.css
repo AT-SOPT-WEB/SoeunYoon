@@ -1,0 +1,10 @@
+/* 반응형 적용 */
+@media (max-width: 600px) {
+    .filter-buttons,
+    .input-section,
+    .action-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  

@@ -1,29 +1,5 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: #f3f0fa;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-  }
-  
-  header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  header h1 {
-    font-size: 2rem;
-    color: #5e35b1;
-    margin: 0;
-  }
-  
-  .filter-buttons {
+/* 필터 버튼, 드롭다운 */
+.filter-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -37,14 +13,14 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     transition: background-color 0.2s ease;
   }
   
   #priority-toggle {
     display: flex;
     align-items: center;
-    gap: 8px; 
+    gap: 8px;
   }
   
   .filter-buttons button:hover,
@@ -73,7 +49,7 @@
     padding: 10px 12px;
     color: #333;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   
   .dropdown-content a:hover {
@@ -84,6 +60,7 @@
     display: block;
   }
   
+  /* 인풋 + 추가 버튼 */
   .input-section {
     display: flex;
     align-items: center;
@@ -97,11 +74,11 @@
     padding: 8px;
     border: 1px solid #b39ddb;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     background-color: white;
   }
   
-  .input-section button { 
+  .input-section button {
     padding: 8px 14px;
     background-color: #b39ddb;
     color: white;
@@ -114,6 +91,7 @@
     background-color: #9575cd;
   }
   
+  /* 삭제/완료 버튼 */
   .action-buttons {
     display: flex;
     gap: 10px;
@@ -148,43 +126,10 @@
     transform: translateY(-1px);
   }
   
-  .todo-table {
-    overflow-x: auto;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  thead {
-    background-color: #b39ddb;
-    color: white;
-  }
-  
-  th, td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-  }
-  
-  th:first-child,
-  td:first-child {
-    width: 40px;
-  }
-  
-  td.completed {
-    color: #aaa;
-    text-decoration: line-through;
-  }
-  
+  /* Drag & Drop 효과 */
   .dragging {
     opacity: 0.6;
-    background-color: #e1bee7; 
+    background-color: #e1bee7;
     transform: scale(1.02);
     box-shadow: 0 0 10px rgba(149, 117, 205, 0.6);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -214,15 +159,7 @@
     }
   }
   
-  @media (max-width: 600px) {
-    .filter-buttons,
-    .input-section,
-    .action-buttons {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-  
+  /* 커스텀 알럿 */
   .custom-alert {
     position: fixed;
     top: 0;
@@ -250,14 +187,14 @@
   }
   
   .alert-title {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #222;
   }
   
   .alert-message {
-    font-size: 1rem;
+    font-size: 1.2rem;
     white-space: nowrap;
     color: #444;
     margin-bottom: 1.3rem;
@@ -282,3 +219,4 @@
   .alert-confirm:active {
     background-color: #B76CD6;
   }
+  
