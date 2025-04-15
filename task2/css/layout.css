@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: center;
     gap: 1.6rem;
-    margin-bottom: 2.4rem;
+    margin: 4vw 0;
   }
   
   .title-section h1 {
@@ -73,10 +73,6 @@
   td.completed {
     color: #aaa;
     text-decoration: line-through;
-  }
-  
-  input{
-    width: 20%;
   }
 
   #form-wrapper {

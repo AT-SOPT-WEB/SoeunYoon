@@ -145,12 +145,16 @@
 
   .input-section input[type="text"],
   .input-section select {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid var(--purple-light);
     border-radius: 6px;
     width: 100%;
-    font-size: 1.4;
+    font-size: 1.4rem;
     background-color: white;
+  }  
+  
+  .input-section select:active {
+    background-color: var(--purple-bg);
   }
   
   .input-section input:focus {
@@ -162,15 +166,19 @@
   .input-section button {
     padding: 8px 16px;
     white-space: nowrap;
-    background-color: var(--purple-main);
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--purple-light);
     border-radius: 6px;
     cursor: pointer;
   }
   
   .input-section button:hover {
-    background-color: var(--purple-light);
+    background-color: var(--hover-bg);
+  }
+
+  .input-section button:active {
+    background-color: var(--purple-bg);
   }
   
   .todo-table{
@@ -201,7 +209,6 @@
     font-weight: 600;
     flex-wrap: nowrap;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
   }
   
   .action-buttons button:first-child {

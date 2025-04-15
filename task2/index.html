@@ -21,20 +21,20 @@
   <section class="title-section">
     <h1>📋 마구마구 리스트</h1>
     <div class="filter-buttons">
-      <button onclick="filterTodos('all')">전체</button>
-      <button onclick="filterTodos('completed')">완료됨</button>
-      <button onclick="filterTodos('incomplete')">미완료</button>
+      <button id="filter-all">전체</button>
+      <button id="filter-completed">완료됨</button>
+      <button id="filter-incomplete">미완료</button>
 
       <!-- 중요도 필터 드롭다운 -->
       <div class="dropdown">
-        <button id="priority-toggle" class="dropbtn" onclick="toggleDropdown()">
+        <button id="priority-toggle" class="dropbtn">
           <span>중요도</span>
           <i class="fa-solid fa-caret-down"></i>
         </button>
         <div class="dropdown-content" id="priority-dropdown">
-          <a href="#" onclick="filterPriority(1)">1</a>
-          <a href="#" onclick="filterPriority(2)">2</a>
-          <a href="#" onclick="filterPriority(3)">3</a>
+          <a href="#" data-priority="1">1</a>
+          <a href="#" data-priority="2">2</a>
+          <a href="#" data-priority="3">3</a>
         </div>
       </div>      
     </div>
@@ -47,14 +47,14 @@
 
       <!-- 커스텀 중요도 선택 드롭다운 -->
       <div class="custom-select" id="priority-select">
-        <button id="select-toggle" class="select-btn" onclick="toggleSelectDropdown()">
+        <button id="select-toggle" class="select-btn">
           <span id="selected-priority">중요도 선택</span>
           <i class="fa-solid fa-caret-down"></i>
         </button>
         <ul class="select-dropdown" id="select-dropdown">
-          <li onclick="selectPriority(1)">1</li>
-          <li onclick="selectPriority(2)">2</li>
-          <li onclick="selectPriority(3)">3</li>
+          <li data-priority="1">1</li>
+          <li data-priority="2">2</li>
+          <li data-priority="3">3</li>
         </ul>
       </div>
       
@@ -62,8 +62,8 @@
     </section>
 
     <section class="action-buttons">
-      <button onclick="deleteTodos()">삭제</button>
-      <button onclick="completeTodos()">완료</button>
+      <button id="delete-btn">삭제</button>
+      <button id="complete-btn">완료</button>      
     </section>
   </div>
 
@@ -73,7 +73,7 @@
       <thead>
         <tr>
           <th>
-            <input type="checkbox" id="select-all" onclick="toggleAll(this)" />
+            <input type="checkbox" id="select-all" />
           </th>
           <th>중요도</th>
           <th>완료됨</th>
