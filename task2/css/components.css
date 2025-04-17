@@ -99,7 +99,7 @@
   }
   
   .select-dropdown li:hover {
-    background-color: var(--hover-bg);
+    background-color: var(--bg-hover);
   }
   
   .dropdown {
@@ -131,7 +131,7 @@
   }
   
   .dropdown-content a:hover {
-    background-color: var(--hover-bg);
+    background-color: var(--bg-hover);
   }
 
   /* 인풋 + 추가 버튼 */
@@ -174,7 +174,7 @@
   }
   
   .input-section button:hover {
-    background-color: var(--hover-bg);
+    background-color: var(--bg-hover);
   }
 
   .input-section button:active {
@@ -206,7 +206,6 @@
     border-radius: 6px;
     border: none;
     color: white;
-    font-weight: 600;
     flex-wrap: nowrap;
     cursor: pointer;
   }

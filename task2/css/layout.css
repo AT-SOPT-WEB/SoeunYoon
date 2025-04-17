@@ -19,7 +19,7 @@
   }
 
   ::selection {
-    background-color: var(--purple-main);
+    background-color: var(--purple-light);
     color: white;
   }  
 
@@ -35,7 +35,7 @@
     font-size: 2.6rem;
     font-weight: bold;
     color: var(--text-dark);
-    margin: 0;
+    margin: 0; 
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -46,24 +46,29 @@
   }
   
   table {
-    width: 100%;
     border-collapse: collapse;
-    background-color: white;
-    border-radius: 8px;
+    width: 100%;
+    background: var(--bg);
+    border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
-  
   thead {
     background-color: var(--purple-light);
     color: white;
   }
-  
   th, td {
+    border-bottom: 1px solid var(--gray-300);
     padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 1.4rem;
+    color: var(--text);
   }
+  
+  thead {
+    background-color: var(--gray-100);
+  }
+  
   
   th:first-child,
   td:first-child {
@@ -71,7 +76,7 @@
   }
   
   td.completed {
-    color: #aaa;
+    color: var(--border-gray-dark);
     text-decoration: line-through;
   }
 

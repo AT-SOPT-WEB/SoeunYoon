@@ -10,14 +10,14 @@
     background: #f3f0fa;
     margin: 0;
     color: var(--text-dark);
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Pretendard', sans-serif;
   }
 
   :root {
     /* Purple Theme */
-    --purple-main: #9575cd;
-    --purple-light: #b39ddb;
-    --purple-bg: #ddcdf2;
+    --purple-main: #5C6BC0;
+    --purple-bg: #d0cdf2;  
+    --purple-light: #9FA8DA; 
 
     /* Blue Buttons */
     --blue-main: #5384d4;
@@ -26,18 +26,27 @@
     /* Red Buttons */
     --red-main: #de5656;
     --red-hover: #b84545;
-  
+
+    /* Gray Colors */
+    --gray-100: #f5f5f5;
+    --gray-300: #f4f1f1;
+    --gray-600: #dcd7d7;
+      
     /* Alert Colors */
     --alert-bg: #DC9FF0;
     --alert-hover: #CE85E8;
     --alert-active: #B76CD6;
-  
+    
     /* Text, Background Colors */
+    --text: #212121;
     --text-dark: #222;
     --text-light: #444;
-  
+    
     --border-gray: #ddd;
-    --hover-bg: #ede7f6;
+    --border-gray-dark: #aaa;
+    --bg: #ffffff;
+    --bg-hover: #ede7f6;
   }
+  
   
 
