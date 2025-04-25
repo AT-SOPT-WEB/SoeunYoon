@@ -1,40 +1,52 @@
 import { todos as initialTodos } from './data.js';
+import { getStoredTodos, saveTodos } from './storage.js';
+import { createCompletedIcon } from './icon.js';
+import { showAlert } from './alert.js';
 
-let todos = JSON.parse(localStorage.getItem('todos')) || initialTodos;
-localStorage.setItem('todos', JSON.stringify(todos));
+let todos = getStoredTodos();
+saveTodos(todos); 
 
 const MESSAGES = {
   empty: { title: '입력 누락', body: '모든 값을 입력해주세요!' },
   duplicate: { title: '중복 완료', body: '이미 완료된 항목이 포함되어 있습니다.' },
 };
 
-function showAlert(message, title = '알림') {
-  const modal = document.getElementById('custom-alert');
-  modal.classList.remove('hidden');
-  modal.querySelector('.alert-title').textContent = title;
-  modal.querySelector('.alert-message').textContent = message;
+function createTableRow(todo) {
+  const row = document.createElement('tr');
+  row.setAttribute('draggable', true);
+  row.setAttribute('data-id', todo.id);
 
-  const confirmBtn = modal.querySelector('.alert-confirm');
-  confirmBtn.onclick = () => {
-    modal.classList.add('hidden');
-  };
+  const checkboxTd = document.createElement('td');
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.dataset.id = todo.id;
+  checkboxTd.appendChild(checkbox);
+
+  const priorityTd = document.createElement('td');
+  priorityTd.textContent = todo.priority;
+
+
+  const completedTd = document.createElement('td');
+  const completedIcon = createCompletedIcon(todo.completed);
+  completedTd.appendChild(completedIcon);
+  
+  const titleTd = document.createElement('td');
+  titleTd.textContent = todo.title;
+
+  row.append(checkboxTd, priorityTd, completedTd, titleTd);
+
+  return row;
 }
 
 function renderTable(data = todos) {
   const table = document.getElementById('todo-body');
-  table.innerHTML = '';
+  while (table.firstChild) {
+    table.removeChild(table.firstChild);
+  }  
 
   data.forEach(todo => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td><input type="checkbox" data-id="${todo.id}" /></td>
-      <td>${todo.priority}</td>
-      <td>${todo.completed ? '✅' : '❌'}</td>
-      <td>${todo.title}</td>
-    `;
+    const row = createTableRow(todo);
 
-    row.setAttribute('draggable', true);
-    row.setAttribute('data-id', todo.id);
     row.addEventListener('dragstart', handleDragStart);
     row.addEventListener('dragover', handleDragOver);
     row.addEventListener('drop', handleDrop);
@@ -43,6 +55,7 @@ function renderTable(data = todos) {
     table.appendChild(row);
   });
 }
+
 renderTable();
 
 function toggleDropdown() {
@@ -57,7 +70,8 @@ function toggleSelectDropdown() {
 
 function selectPriority(priority) {
   const selectedText = document.getElementById("selected-priority");
-  selectedText.textContent = priority;
+  selectedText.textContent = String(priority);
+
   document.getElementById("select-dropdown").classList.remove("show");
 }
 
@@ -68,14 +82,14 @@ function filterTodos(type) {
 }
 
 function filterPriority(priority) {
-  renderTable(todos.filter(t => t.priority == priority));
+  renderTable(todos.filter(t => t.priority === Number(priority)));
 }
 
 function deleteTodos() {
   const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
   const ids = Array.from(checkboxes).map(cb => +cb.dataset.id);
   todos = todos.filter(todo => !ids.includes(todo.id));
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveTodos(todos);
   renderTable();
 }
 
@@ -87,7 +101,7 @@ function completeTodos() {
   if (hasCompleted) return showAlert(MESSAGES.duplicate.body, MESSAGES.duplicate.title);
 
   todos = todos.map(todo => ids.includes(todo.id) ? { ...todo, completed: true } : todo);
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveTodos(todos);
   renderTable();
 }
 
@@ -129,7 +143,7 @@ function handleDrop(e) {
   const [movedItem] = todos.splice(srcIndex, 1);
   todos.splice(targetIndex, 0, movedItem);
 
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveTodos(todos);
   renderTable();
 }
 
@@ -156,7 +170,7 @@ document.getElementById('add-btn').addEventListener('click', () => {
   };
 
   todos.push(newTodo);
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveTodos(todos);
   renderTable();
 
   document.getElementById('todo-input').value = '';
@@ -166,7 +180,7 @@ document.getElementById('add-btn').addEventListener('click', () => {
 document.addEventListener('click', (e) => {
   const dropdownWrapper = document.querySelector('.dropdown');
   const dropdown = document.getElementById('priority-dropdown');
-  if (!dropdownWrapper.contains(e.target)) {
+  if (dropdown && !dropdownWrapper.contains(e.target)) {
     dropdown.classList.remove('show');
   }
 });
