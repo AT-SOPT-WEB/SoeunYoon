@@ -1,4 +1,3 @@
-import { todos as initialTodos } from './data.js';
 import { getStoredTodos, saveTodos } from './storage.js';
 import { createCompletedIcon } from './icon.js';
 import { showAlert } from './alert.js';
@@ -103,7 +102,10 @@ function completeTodos() {
   todos = todos.map(todo => ids.includes(todo.id) ? { ...todo, completed: true } : todo);
   saveTodos(todos);
   renderTable();
+
+  showAlert('오늘도 하나의 목표를 달성하셨네요!', '완료!');
 }
+
 
 function toggleAll(el) {
   const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
