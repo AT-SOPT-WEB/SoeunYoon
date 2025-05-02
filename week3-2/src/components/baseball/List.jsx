@@ -4,7 +4,7 @@ export default function List({ tries }) {
         {tries.map((tryStr, idx) => (
           <div
             key={idx}
-            className="border border-blue-500 p-2 rounded-full text-center bg-white"
+            className="border border-normalGray p-2 rounded-md text-center bg-white shadow-sm text-sm"
           >
             {tryStr}
           </div>
@@ -12,3 +12,4 @@ export default function List({ tries }) {
       </div>
     );
   }
+  

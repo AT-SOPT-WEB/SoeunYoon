@@ -55,10 +55,16 @@ export default function BaseballGame() {
   };
 
   return (
-    <div className="w-full max-w-md px-4 space-y-4">
-      <Input onSubmit={handleTry} />
-      <Message text={message} />
-      <List tries={tries} />
+    <div className="w-full max-w-md px-4 space-y-5">
+      <div className="rounded-lg">
+        <Input onSubmit={handleTry} />
+      </div>
+      <div className="rounded-lg text-center">
+        <Message text={message} />
+      </div>
+      <div className="rounded-lg">
+        <List tries={tries} />
+      </div>
     </div>
   );
 }
