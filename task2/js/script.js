@@ -2,6 +2,7 @@ import { getStoredTodos, saveTodos } from './storage.js';
 import { createCompletedIcon } from './icon.js';
 import { MESSAGES } from './messages.js';
 import { showAlert } from './alert.js';
+import { getSelectedTodoIds } from '../utils/domUtils.js';
 
 let todos = getStoredTodos();
 saveTodos(todos); 
@@ -81,25 +82,24 @@ function filterPriority(priority) {
 }
 
 function deleteTodos() {
-  const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
-  const ids = Array.from(checkboxes).map(cb => +cb.dataset.id);
+  const ids = getSelectedTodoIds();
   todos = todos.filter(todo => !ids.includes(todo.id));
   saveTodos(todos);
   renderTable();
 }
 
 function completeTodos() {
-  const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
-  const ids = Array.from(checkboxes).map(cb => +cb.dataset.id);
+  const ids = getSelectedTodoIds();
 
   const hasCompleted = todos.some(t => ids.includes(t.id) && t.completed);
   if (hasCompleted) return showAlert(MESSAGES.duplicate.body, MESSAGES.duplicate.title);
 
-  todos = todos.map(todo => ids.includes(todo.id) ? { ...todo, completed: true } : todo);
+  todos = todos.map(todo =>
+    ids.includes(todo.id) ? { ...todo, completed: true } : todo
+  );
   saveTodos(todos);
   renderTable();
-
-  showAlert('오늘도 하나의 목표를 달성하셨네요!', '완료!');
+  showAlert(MESSAGES.success.body, MESSAGES.success.title);
 }
 
 
@@ -151,29 +151,46 @@ function handleDragEnd() {
   if (dropTarget) dropTarget.classList.remove('drop-target');
 }
 
-document.getElementById('add-btn').addEventListener('click', () => {
-  const title = document.getElementById('todo-input').value.trim();
-  const priorityText = document.getElementById('selected-priority').textContent.trim();
-  const priority = ['1', '2', '3'].includes(priorityText) ? priorityText : '';
+document.getElementById('add-btn').addEventListener('click', handleAddTodo);
+
+function handleAddTodo() {
+  const title = getInputTitle();
+  const priority = getInputPriority();
 
   if (!title || !priority) {
     return showAlert(MESSAGES.empty.body, MESSAGES.empty.title);
   }
 
-  const newTodo = {
-    id: Date.now(),
-    title,
-    completed: false,
-    priority: parseInt(priority)
-  };
-
+  const newTodo = createNewTodo(title, priority);
   todos.push(newTodo);
   saveTodos(todos);
   renderTable();
+  resetInputs();
+}
 
+function getInputTitle() {
+  return document.getElementById('todo-input').value.trim();
+}
+
+function getInputPriority() {
+  const priorityText = document.getElementById('selected-priority').textContent.trim();
+  return ['1', '2', '3'].includes(priorityText) ? priorityText : '';
+}
+
+function createNewTodo(title, priority) {
+  return {
+    id: Date.now(),
+    title,
+    completed: false,
+    priority: parseInt(priority),
+  };
+}
+
+function resetInputs() {
   document.getElementById('todo-input').value = '';
   document.getElementById('selected-priority').textContent = '중요도 선택';
-});
+}
+
 
 document.addEventListener('click', (e) => {
   const dropdownWrapper = document.querySelector('.dropdown');
