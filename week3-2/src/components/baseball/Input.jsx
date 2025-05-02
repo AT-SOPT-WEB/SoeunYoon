@@ -16,7 +16,7 @@ export default function Input({ onSubmit }) {
       onChange={(e) => setValue(e.target.value)}
       onKeyDown={handleKeyDown}
       placeholder="3자리 숫자를 입력해주세요."
-      className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-md text-sm"
+      className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-skyBlue bg-white shadow-md text-sm"
     />
   );
 }

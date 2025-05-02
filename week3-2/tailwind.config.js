@@ -6,18 +6,29 @@ export default {
       colors: {
         bg: '#f5f5f7',
         black: '#222222',
-
+      
         // 회색조
         normalGray: '#d9d9d9',
         'normalGray-hover': '#c3c3c3',
         'normalGray-active': '#aeaeae',
         lightGray: '#fbfbfb',
-        'lightGray-hover': '#f9f9f9',
+        'lightGray-hover': '#f7f7f7',
         'lightGray-active': '#f3f3f3',
         darkGray: '#a3a3a3',
         'darkGray-hover': '#828282',
         'darkGray-active': '#626262',
+      
+        // 남색
+        deepBlue: '#1e2a47',
+        'deepBlue-hover': '#26314f',
+        'deepBlue-active': '#141d33',
+
+        // 하늘색
+        skyBlue: '#6ca6f3',          
+        'skyBlue-hover': '#85b6f5',       
+        'skyBlue-active': '#4f90e5',    
       },
+      
       boxShadow: {
         card: '2px 4px 12px 0px rgba(0, 0, 0, 0.08)',
         modal: '2px 2px 16px 0px rgba(0, 0, 0, 0.25)',

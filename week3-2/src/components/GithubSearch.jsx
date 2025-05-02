@@ -41,14 +41,14 @@ export default function GithubSearch() {
         onChange={e => setInput(e.target.value)}
         onKeyDown={handleSearch}
         placeholder="Github 프로필을 검색해보세요."
-        className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-md text-sm"
+        className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-skyBlue bg-white shadow-md text-sm"
       />
     <div className="flex flex-row-reverse flex-wrap gap-2 mt-3 justify-end">
     {[...recent].reverse().map(user => (
         <span
-        key={user}
-        className="bg-lightGray px-3 py-1 rounded-full border border-normalGray flex items-center gap-1 text-sm cursor-pointer"
-        onClick={() => getUserInfo(user)}
+            key={user}
+            className="bg-lightGray hover:bg-lightGray-hover active:bg-lightGray-active px-3 py-1 rounded-full border border-normalGray flex items-center gap-1 text-sm cursor-pointer"
+            onClick={() => getUserInfo(user)}
         >
         {user}
         <button
@@ -64,7 +64,7 @@ export default function GithubSearch() {
       {userInfo.status === 'pending' && <p className="mt-4 text-center text-darkGray">로딩 중...</p>}
       {userInfo.status === 'rejected' && <p className="mt-4 text-center text-red-500 font-semibold">검색 결과를 찾을 수 없습니다.</p>}
       {userInfo.status === 'resolved' && (
-        <div className="mt-6 bg-[#1e2a47] text-white rounded-xl p-5 shadow-card">
+        <div className="mt-6 bg-deepBlue text-white rounded-xl p-5 shadow-card">
           <button className="float-right text-white hover:text-red-400 font-bold" onClick={() => setUserInfo({ status: 'idle', data: null })}>×</button>
           <img
             src={userInfo.data.avatar_url}
@@ -79,6 +79,14 @@ export default function GithubSearch() {
                 {userInfo.data.bio}
             </p>
           )}
+          <a
+            href={userInfo.data.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block mt-3 mx-auto w-fit text-center text-sm font-medium px-4 py-1 rounded-full bg-white text-deepBlue hover:bg-gray-200 transition"
+          >
+            GitHub 프로필 방문하기 →
+          </a>
           <div className="flex justify-around mt-6 text-sm">
             <div className="text-center">
               <p className="opacity-70">Followers</p>
