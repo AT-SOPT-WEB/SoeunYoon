@@ -1,24 +1,27 @@
+import { FaGithub, FaBaseballBall } from 'react-icons/fa';
+
 export default function Header({ tab, setTab }) {
-    return (
-      <header className="bg-blue-800 text-white py-4 text-center">
-        <h1 className="text-xl font-bold mb-2">
-          🏳️ 숫자야구 || 깃허브 검색 😺
+  return (
+    <header className="bg-black text-white py-8 px-4 shadow-md">
+      <div className="max-w-screen-sm mx-auto">
+        <h1 className="text-xl font-bold mb-5 text-center">
+          <span role="img" aria-label="flag">🏁</span> 숫자 야구 <span className='text-darkGray'> or </span> Github 검색 <span role="img" aria-label="cat">🔍</span>
         </h1>
         <div className="flex justify-center gap-4">
           <button
             onClick={() => setTab('github')}
-            className={`px-4 py-2 rounded ${tab === 'github' ? 'bg-black text-white' : 'bg-white text-black'}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-200 shadow-sm ${tab === 'github' ? 'bg-black text-white' : 'bg-white text-black hover:bg-lightGray-hover'}`}
           >
-            깃허브 검색 🔍
+            <FaGithub /> Github 검색
           </button>
           <button
             onClick={() => setTab('baseball')}
-            className={`px-4 py-2 rounded ${tab === 'baseball' ? 'bg-black text-white' : 'bg-white text-black'}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-200 shadow-sm ${tab === 'baseball' ? 'bg-black text-white' : 'bg-white text-black hover:bg-lightGray-hover'}`}
           >
-            숫자야구 🏳️
+            <FaBaseballBall /> 숫자야구
           </button>
         </div>
-      </header>
-    );
-  }
-  
+      </div>
+    </header>
+  );
+}

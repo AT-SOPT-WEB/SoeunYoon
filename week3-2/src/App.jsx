@@ -7,9 +7,9 @@ export default function App() {
   const [tab, setTab] = useState('github');
 
   return (
-    <div className="max-w-full min-h-screen bg-gray-100">
+    <div className="w-full min-h-screen bg-bg text-black">
       <Header tab={tab} setTab={setTab} />
-      <main className="flex justify-center pt-10">
+      <main className="flex justify-center pt-10 px-4">
         {tab === 'github' ? <GithubSearch /> : <BaseballGame />}
       </main>
     </div>
