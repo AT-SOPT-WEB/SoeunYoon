@@ -8,6 +8,7 @@ export default function useBaseballGame() {
   const [countdown, setCountdown] = useState(null);
   const timerRef = useRef(null);
 
+  // 게임 초기화
   const resetGame = () => {
     setAnswer(generateAnswer());
     setTries([]);
@@ -15,6 +16,7 @@ export default function useBaseballGame() {
     setCountdown(null);
   };
 
+  // 3초 카운트다운 시작 (게임 종료 후)
   const startCountdown = () => {
     setCountdown(3);
     timerRef.current = setInterval(() => {
@@ -29,6 +31,7 @@ export default function useBaseballGame() {
     }, 1000);
   };
 
+  // 숫자 입력 처리
   const handleTry = (input) => {
     if (!isValidInput(input)) {
       setMessage('⚠️ 서로 다른 숫자 3자리를 입력해주세요!');

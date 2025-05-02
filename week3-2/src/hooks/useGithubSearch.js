@@ -1,10 +1,10 @@
-// hooks/useGithubSearch.js
 import { useState } from 'react';
 
 export default function useGithubSearch() {
   const [userInfo, setUserInfo] = useState({ status: 'idle', data: null });
   const [recent, setRecent] = useState(() => JSON.parse(localStorage.getItem('recent')) || []);
 
+  // GitHub 사용자 정보 요청
   const getUserInfo = async (user) => {
     setUserInfo({ status: 'pending', data: null });
     try {
@@ -22,13 +22,15 @@ export default function useGithubSearch() {
       setUserInfo({ status: 'rejected', data: null });
     }
   };
-
+  
+  // 최근 검색어에서 항목 제거
   const removeRecent = (user) => {
     const updated = recent.filter(id => id !== user);
     setRecent(updated);
     localStorage.setItem('recent', JSON.stringify(updated));
   };
 
+  // 검색 결과 초기화
   const resetUserInfo = () => {
     setUserInfo({ status: 'idle', data: null });
   };

@@ -8,7 +8,7 @@ export function generateAnswer() {
     return digits.join('');
   }
   
-  // 입력에 대한 결과 계산
+  // 입력 결과 계산
   export function getBaseballResult(input, answer) {
     let strike = 0;
     let ball = 0;
