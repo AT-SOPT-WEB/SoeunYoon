@@ -12,13 +12,13 @@ export default function Header({ tab, setTab }) {
             onClick={() => setTab('github')}
             className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-200 shadow-sm ${tab === 'github' ? 'bg-black text-white' : 'bg-white text-black hover:bg-lightGray-hover'}`}
           >
-            <FaGithub /> Github 검색
+            <FaGithub /> <span>Github 검색</span>
           </button>
           <button
             onClick={() => setTab('baseball')}
             className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-colors duration-200 shadow-sm ${tab === 'baseball' ? 'bg-black text-white' : 'bg-white text-black hover:bg-lightGray-hover'}`}
           >
-            <FaBaseballBall /> 숫자야구
+            <FaBaseballBall /> <span>숫자야구</span>
           </button>
         </div>
       </div>
