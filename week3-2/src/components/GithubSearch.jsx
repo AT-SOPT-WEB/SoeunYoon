@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import LoopLoading from './common/LoopLoading';
 
 export default function GithubSearch() {
   const [input, setInput] = useState('');
@@ -61,7 +62,12 @@ export default function GithubSearch() {
     ))}
     </div>
 
-      {userInfo.status === 'pending' && <p className="mt-4 text-center text-darkGray">로딩 중...</p>}
+    {userInfo.status === 'pending' && (
+        <div className="mt-6 flex justify-center">
+            <LoopLoading size={200} />
+        </div>
+    )}
+
       {userInfo.status === 'rejected' && <p className="mt-4 text-center text-red-500 font-semibold">검색 결과를 찾을 수 없습니다.</p>}
       {userInfo.status === 'resolved' && (
         <div className="mt-6 bg-deepBlue text-white rounded-xl p-5 shadow-card">
