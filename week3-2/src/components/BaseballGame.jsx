@@ -2,15 +2,7 @@ import { useState } from 'react';
 import Input from './common/Input';
 import Message from './baseball/Message';
 import List from './baseball/List';
-
-function generateAnswer() {
-  const digits = [];
-  while (digits.length < 3) {
-    const rand = Math.floor(Math.random() * 10);
-    if (!digits.includes(rand)) digits.push(rand);
-  }
-  return digits.join('');
-}
+import { generateAnswer, getBaseballResult, isValidInput } from '../utils/baseball';
 
 export default function BaseballGame() {
   const [answer, setAnswer] = useState(generateAnswer());
@@ -18,20 +10,13 @@ export default function BaseballGame() {
   const [message, setMessage] = useState('');
 
   const handleTry = (input) => {
-    if (input.length !== 3 || new Set(input).size !== 3 || !/^[0-9]{3}$/.test(input)) {
+    if (!isValidInput(input)) {
       setMessage('⚠️ 서로 다른 숫자 3자리를 입력해주세요!');
       return;
     }
     if (tries.length >= 10) return;
 
-    let strike = 0;
-    let ball = 0;
-
-    [...input].forEach((num, idx) => {
-      if (num === answer[idx]) strike++;
-      else if (answer.includes(num)) ball++;
-    });
-
+    const { strike, ball } = getBaseballResult(input, answer);
     const result = `${input} - ${strike}S ${ball}B`;
     setTries([...tries, result]);
 
@@ -43,12 +28,12 @@ export default function BaseballGame() {
         setMessage('');
       }, 3000);
     } else if (tries.length + 1 >= 10) {
-      setMessage('💥 10번 실패! 정답은 ' + answer + ' 입니다. 게임이 5초 뒤 초기화됩니다.');
+      setMessage('💥 10번 실패! 정답은 ' + answer + ' 입니다. 게임이 3초 뒤 초기화됩니다.');
       setTimeout(() => {
         setAnswer(generateAnswer());
         setTries([]);
         setMessage('');
-      }, 5000);
+      }, 3000);
     } else {
       setMessage(`${strike} 스트라이크 ${ball} 볼`);
     }
@@ -57,13 +42,13 @@ export default function BaseballGame() {
   return (
     <div className="w-full max-w-md px-4 space-y-5">
       <div className="rounded-lg">
-      <Input
-        placeholder="서로 다른 숫자 3자리를 입력하세요"
-        onSubmit={handleTry}
-        resetAfterSubmit={true}
-        maxLength={3}
-        className="text-center"
-      />
+        <Input
+          placeholder="서로 다른 숫자 3자리를 입력하세요"
+          onSubmit={handleTry}
+          resetAfterSubmit={true}
+          maxLength={3}
+          className="text-center"
+        />
       </div>
       <div className="rounded-lg text-center">
         <Message text={message} />
