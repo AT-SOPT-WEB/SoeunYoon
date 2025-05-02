@@ -41,37 +41,37 @@ export default function GithubSearch() {
         onChange={e => setInput(e.target.value)}
         onKeyDown={handleSearch}
         placeholder="Github 프로필을 검색해보세요."
-        className="w-full p-3 rounded-full border border-blue-500 bg-blue-100"
+        className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-md text-sm"
       />
-      <div className="flex gap-2 mt-2">
+      <div className="flex flex-wrap gap-2 mt-3">
         {recent.map(user => (
-          <span key={user} className="bg-white px-3 py-1 rounded-full border flex items-center gap-1">
-            {user} <button onClick={() => removeRecent(user)}>x</button>
+          <span key={user} className="bg-lightGray px-3 py-1 rounded-full border border-normalGray flex items-center gap-1 text-sm">
+            {user} <button onClick={() => removeRecent(user)} className="text-darkGray hover:text-black">×</button>
           </span>
         ))}
       </div>
 
-      {userInfo.status === 'pending' && <p className="mt-4">로딩 중...</p>}
-      {userInfo.status === 'rejected' && <p className="mt-4 text-red-500">검색 결과를 찾을 수 없습니다.</p>}
+      {userInfo.status === 'pending' && <p className="mt-4 text-center text-darkGray">로딩 중...</p>}
+      {userInfo.status === 'rejected' && <p className="mt-4 text-center text-red-500 font-semibold">검색 결과를 찾을 수 없습니다.</p>}
       {userInfo.status === 'resolved' && (
-        <div className="mt-4 bg-blue-900 text-white rounded-lg p-4">
-          <button className="float-right" onClick={() => setUserInfo({ status: 'idle', data: null })}>X</button>
+        <div className="mt-6 bg-[#1e2a47] text-white rounded-xl p-5 shadow-card">
+          <button className="float-right text-white hover:text-red-400 font-bold" onClick={() => setUserInfo({ status: 'idle', data: null })}>×</button>
           <img
             src={userInfo.data.avatar_url}
             alt="avatar"
-            className="w-24 h-24 rounded-full mx-auto cursor-pointer"
+            className="w-24 h-24 rounded-full mx-auto cursor-pointer border-4 border-white"
             onClick={() => window.open(userInfo.data.html_url, '_blank')}
           />
-          <p className="text-center mt-2 font-bold text-lg cursor-pointer" onClick={() => window.open(userInfo.data.html_url)}>{userInfo.data.name}</p>
-          <p className="text-center text-sm">{userInfo.data.login}</p>
-          <div className="flex justify-around mt-4">
-            <div>
-              <p>Followers</p>
-              <p>{userInfo.data.followers}</p>
+          <p className="text-center mt-4 font-bold text-xl cursor-pointer" onClick={() => window.open(userInfo.data.html_url)}>{userInfo.data.name}</p>
+          <p className="text-center text-sm opacity-80">{userInfo.data.login}</p>
+          <div className="flex justify-around mt-6 text-sm">
+            <div className="text-center">
+              <p className="opacity-70">Followers</p>
+              <p className="font-semibold text-lg">{userInfo.data.followers}</p>
             </div>
-            <div>
-              <p>Following</p>
-              <p>{userInfo.data.following}</p>
+            <div className="text-center">
+              <p className="opacity-70">Following</p>
+              <p className="font-semibold text-lg">{userInfo.data.following}</p>
             </div>
           </div>
         </div>
