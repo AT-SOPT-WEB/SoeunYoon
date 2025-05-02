@@ -1,14 +1,10 @@
 import { getStoredTodos, saveTodos } from './storage.js';
 import { createCompletedIcon } from './icon.js';
+import { MESSAGES } from './messages.js';
 import { showAlert } from './alert.js';
 
 let todos = getStoredTodos();
 saveTodos(todos); 
-
-const MESSAGES = {
-  empty: { title: '입력 누락', body: '모든 값을 입력해주세요!' },
-  duplicate: { title: '중복 완료', body: '이미 완료된 항목이 포함되어 있습니다.' },
-};
 
 function createTableRow(todo) {
   const row = document.createElement('tr');
