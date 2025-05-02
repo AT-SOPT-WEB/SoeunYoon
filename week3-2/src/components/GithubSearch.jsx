@@ -13,7 +13,7 @@ export default function GithubSearch() {
       const data = await response.json();
       setUserInfo({ status: 'resolved', data });
       setRecent(prev => {
-        const updated = [user, ...prev.filter(id => id !== user)].slice(0, 3);
+        const updated = [...prev.filter(id => id !== user), user].slice(-3);
         localStorage.setItem('recent', JSON.stringify(updated));
         return updated;
       });
@@ -43,13 +43,23 @@ export default function GithubSearch() {
         placeholder="Github 프로필을 검색해보세요."
         className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white shadow-md text-sm"
       />
-      <div className="flex flex-wrap gap-2 mt-3">
-        {recent.map(user => (
-          <span key={user} className="bg-lightGray px-3 py-1 rounded-full border border-normalGray flex items-center gap-1 text-sm">
-            {user} <button onClick={() => removeRecent(user)} className="text-darkGray hover:text-black">×</button>
-          </span>
-        ))}
-      </div>
+    <div className="flex flex-row-reverse flex-wrap gap-2 mt-3 justify-end">
+    {[...recent].reverse().map(user => (
+        <span
+        key={user}
+        className="bg-lightGray px-3 py-1 rounded-full border border-normalGray flex items-center gap-1 text-sm cursor-pointer"
+        onClick={() => getUserInfo(user)}
+        >
+        {user}
+        <button
+            onClick={(e) => { e.stopPropagation(); removeRecent(user); }}
+            className="text-darkGray hover:text-black"
+        >
+            ×
+        </button>
+        </span>
+    ))}
+    </div>
 
       {userInfo.status === 'pending' && <p className="mt-4 text-center text-darkGray">로딩 중...</p>}
       {userInfo.status === 'rejected' && <p className="mt-4 text-center text-red-500 font-semibold">검색 결과를 찾을 수 없습니다.</p>}
