@@ -74,6 +74,11 @@ export default function GithubSearch() {
           />
           <p className="text-center mt-4 font-bold text-xl cursor-pointer" onClick={() => window.open(userInfo.data.html_url)}>{userInfo.data.name}</p>
           <p className="text-center text-sm opacity-80">{userInfo.data.login}</p>
+          {userInfo.data.bio && (
+            <p className="text-center text-sm mt-2 italic text-lightGray">
+                {userInfo.data.bio}
+            </p>
+          )}
           <div className="flex justify-around mt-6 text-sm">
             <div className="text-center">
               <p className="opacity-70">Followers</p>
