@@ -1,9 +1,11 @@
 import { useState } from 'react';
+
 import LoopLoading from './common/LoopLoading';
+import Input from './common/Input';
+
 import GithubUserCard from './github/GithubUserCard';
 
 export default function GithubSearch() {
-  const [input, setInput] = useState('');
   const [userInfo, setUserInfo] = useState({ status: 'idle', data: null });
   const [recent, setRecent] = useState(() => JSON.parse(localStorage.getItem('recent')) || []);
 
@@ -24,12 +26,6 @@ export default function GithubSearch() {
     }
   };
 
-  const handleSearch = (e) => {
-    if (e.key === 'Enter' && input.trim()) {
-      getUserInfo(input.trim());
-    }
-  };
-
   const removeRecent = (user) => {
     const updated = recent.filter(id => id !== user);
     setRecent(updated);
@@ -38,13 +34,11 @@ export default function GithubSearch() {
 
   return (
     <div className="w-full max-w-md px-4">
-      <input
-        value={input}
-        onChange={e => setInput(e.target.value)}
-        onKeyDown={handleSearch}
+    <Input
         placeholder="Github 프로필을 검색해보세요."
-        className="w-full p-3 rounded-lg border border-normalGray focus:outline-none focus:ring-2 focus:ring-skyBlue bg-white shadow-md text-sm"
-      />
+        onSubmit={getUserInfo}
+        resetAfterSubmit={false}
+    />
     <div className="flex flex-row-reverse flex-wrap gap-2 mt-3 justify-end">
     {[...recent].reverse().map(user => (
         <span

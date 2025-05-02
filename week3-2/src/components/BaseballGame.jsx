@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Input from './baseball/Input';
+import Input from './common/Input';
 import Message from './baseball/Message';
 import List from './baseball/List';
 
@@ -57,7 +57,13 @@ export default function BaseballGame() {
   return (
     <div className="w-full max-w-md px-4 space-y-5">
       <div className="rounded-lg">
-        <Input onSubmit={handleTry} />
+      <Input
+        placeholder="서로 다른 숫자 3자리를 입력하세요"
+        onSubmit={handleTry}
+        resetAfterSubmit={true}
+        maxLength={3}
+        className="text-center"
+      />
       </div>
       <div className="rounded-lg text-center">
         <Message text={message} />
