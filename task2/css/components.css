@@ -1,0 +1,324 @@
+  /* 필터 버튼, 드롭다운 */
+  .filter-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .filter-buttons button,
+  .dropbtn {
+    padding: 8px 16px;
+    background-color: var(--purple-bg);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .dropbtn:focus {
+    border-color: var(--purple-main);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.2);
+  }
+
+  .filter-buttons button:focus {
+    border-color: var(--purple-main);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.2);
+  }
+
+  #priority-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .custom-select {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .select-btn {
+    font-size: 1.4rem;
+    width: 130px;
+    border: 1px solid var(--purple-light);
+    border-radius: 6px;
+    background-color: white;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .select-btn span {
+    flex: 9;
+    text-align: left;
+  }
+  
+  .select-btn i {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .select-btn:focus {
+    border-color: var(--purple-main);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.2);
+  }
+
+  .select-dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: white;
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 100%;
+  }
+  
+  .select-dropdown.show {
+    display: block;
+  }
+  
+  .select-dropdown li {
+    padding: 10px 12px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    cursor: pointer;
+  }
+  
+  .select-dropdown li:hover {
+    background-color: var(--bg-hover);
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    margin-top: 3px;
+    position: absolute;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    min-width: 100px;
+  }
+  
+  .dropdown-content.show {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 1.3rem;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--bg-hover);
+  }
+
+  /* 인풋 + 추가 버튼 */
+  .input-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    flex: 1 1 60%;
+  }
+
+  .input-section input[type="text"],
+  .input-section select {
+    padding: 10px;
+    border: 1px solid var(--purple-light);
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1.4rem;
+    background-color: white;
+  }  
+  
+  .input-section select:active {
+    background-color: var(--purple-bg);
+  }
+  
+  .input-section input:focus {
+    border-color: var(--purple-main);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(149, 117, 205, 0.2);
+  }
+
+  .input-section button {
+    padding: 8px 16px;
+    white-space: nowrap;
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--purple-light);
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .input-section button:hover {
+    background-color: var(--bg-hover);
+  }
+
+  .input-section button:active {
+    background-color: var(--purple-bg);
+  }
+  
+  .todo-table{
+    font-size: 1.3rem;
+  }
+
+  /* 체크박스 */ 
+  input[type="checkbox"] {
+    width: 1.6rem;
+    height: 1.6rem;
+    accent-color: var(--purple-main);
+  }
+
+  /* 삭제/완료 버튼 */
+  .action-buttons {
+    display: flex;
+    flex: 1 1 40%;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .action-buttons button {
+    padding: 9px 20px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    flex-wrap: nowrap;
+    cursor: pointer;
+  }
+  
+  .action-buttons button:first-child {
+    background-color: var(--red-main);
+  }
+  
+  .action-buttons button:first-child:hover {
+    background-color: var(--red-hover);
+    transform: translateY(-1px);
+  }
+  
+  .action-buttons button:last-child {
+    background-color: var(--blue-main);
+  }
+  
+  .action-buttons button:last-child:hover {
+    background-color: var(--blue-hover);
+    transform: translateY(-1px);
+  }
+  
+  /* Drag & Drop 효과 */
+  .dragging {
+    opacity: 0.6;
+    background-color: var(--purple-bg);
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(149, 117, 205, 0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .drop-target {
+    position: relative;
+  }
+  
+  .drop-target::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--purple-main);
+    animation: blink-bar 0.4s ease-in-out infinite alternate;
+  }
+  
+  @keyframes blink-bar {
+    from {
+      background-color: var(--purple-main);
+    }
+    to {
+      background-color: var(--purple-light);
+    }
+  }
+  
+  /* 커스텀 알럿 */
+  .custom-alert {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-alert.hidden {
+    display: none;
+  }
+  
+  .alert-box {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 300px;
+  }
+  
+  .alert-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+  }
+  
+  .alert-message {
+    font-size: 1.4rem;
+    white-space: nowrap;
+    color: var(--text-light);
+    margin-bottom: 1.3rem;
+  }
+  
+  .alert-confirm {
+    background-color: var(--alert-bg);
+    border: none;
+    padding: 7px 30px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .alert-confirm:hover {
+    background-color: var(--alert-hover);
+  }
+  
+  .alert-confirm:active {
+    background-color: var(--alert-active);
+  }
+  
