@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router';
 
 import AuthLayout from '../components/login/AuthLayout';
 import Input from '../components/common/Input';
-import Button from '../components/common/Button';
+import Button from '../components/button/Button';
 
 export default function Login() {
   const navigate = useNavigate();
