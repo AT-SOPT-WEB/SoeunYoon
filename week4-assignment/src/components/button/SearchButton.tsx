@@ -13,7 +13,7 @@ interface SearchButtonProps {
 }
 
 export default function SearchButton({
-  name = '검색',
+  name = '검색하기',
   onClick,
   className = '',
   type = 'button',

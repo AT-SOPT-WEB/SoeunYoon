@@ -38,7 +38,7 @@ const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
     return (
       <label
         htmlFor={name}
-        className={`flex items-center justify-between rounded-full bg-white hover:text-black hover:outline hover:outline-1 hover:outline-gray-300 ${width} ${height} px-4 ${
+        className={`flex items-center justify-between rounded-full bg-lightGray hover:text-black hover:outline hover:outline-1 hover:outline-gray-300 ${width} ${height} px-4 ${
           !isFocus ? 'text-gray-400' : ''
         }`}
       >

@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="mx-auto flex min-h-screen w-full flex-col bg-white">
+    <div className="mx-auto flex min-h-screen bg-bg w-full flex-col bg-white">
       <Header />
       <div className="flex-1 pt-[72px]">{children || <Outlet />}</div>
     </div>

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#f5f5f7',
+        bg: '#EDF4FF',
         black: '#222222',
 
         // 회색조
