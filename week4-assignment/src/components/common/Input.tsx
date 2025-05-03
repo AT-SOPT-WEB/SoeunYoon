@@ -1,10 +1,10 @@
-interface AuthInputProps {
+interface InputProps {
     label: string;
     placeholder: string;
     type?: string;
   }
   
-  export default function AuthInput({ label, placeholder, type = 'text' }: AuthInputProps) {
+  export default function Input({ label, placeholder, type = 'text' }: InputProps) {
     return (
       <div className="flex flex-col gap-2">
         <label className="text-xs font-semibold text-zinc-800">{label}</label>

@@ -17,6 +17,7 @@ export default {
         darkGray: '#a3a3a3',
         'darkGray-hover': '#828282',
         'darkGray-active': '#626262',
+        darkerGray: '#4b4b4b',
 
         // 하늘색~남색
         lightSky: "#DFECFB",
