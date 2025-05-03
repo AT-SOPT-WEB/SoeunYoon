@@ -1,10 +1,10 @@
 export default function Login() {
     return (
       <div className="w-screen h-screen bg-indigo-50 flex items-center justify-center">
-        <div className="w-96 bg-white bg-opacity-70 rounded-lg shadow-[0px_3px_14px_rgba(85,128,20,0.2)] outline outline-[0.7px] outline-white p-8">
+        <div className="w-96 bg-white bg-opacity-70 rounded-md shadow-[0px_3px_14px_rgba(85,128,20,0.2)] outline outline-[0.7px] outline-white p-8">
           <div className="text-center mb-12">
             <h1 className="text-2xl font-semibold">
-              <span className="text-blue-400">SUS</span>
+              <span className="text-darkSky">SUS</span>
               <span className="text-black"> 로그인</span>
             </h1>
           </div>
@@ -29,10 +29,10 @@ export default function Login() {
             </div>
   
             <div className="flex flex-col gap-3 mt-4">
-              <button className="h-9 bg-blue-400 text-white text-xs rounded hover:bg-blue-500 transition">
+              <button className="h-9 bg-darkSky text-white text-xs rounded hover:bg-darkSky-hover active:bg-darkSky-active transition">
                 로그인
               </button>
-              <button className="h-9 bg-blue-100 text-zinc-800 text-xs rounded hover:bg-blue-200 transition">
+              <button className="h-9 bg-lightSky text-zinc-800 text-xs rounded hover:bg-lightSky-hover active:bg-lightSky-active transition">
                 회원가입
               </button>
             </div>
