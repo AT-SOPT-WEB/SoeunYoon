@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
 import { AlertModalProps } from "../../types";
 
-  export default function AlertModal({
+  export default function Alert({
     isOpen,
     title,
     message,
