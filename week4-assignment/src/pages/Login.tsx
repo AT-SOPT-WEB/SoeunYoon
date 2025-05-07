@@ -15,6 +15,17 @@ export default function Login() {
   const [alert, setAlert] = useState({ isOpen: false, message: '', isError: false });
 
   const handleLogin = async () => {
+    const idRegex = /^[A-Za-z0-9]{8,20}$/;
+
+    if (!idRegex.test(loginId)) {
+      setAlert({
+        isOpen: true,
+        message: '아이디는 대문자/소문자/숫자만 사용하며 8자 이상 20자 이하여야 합니다.',
+        isError: true,
+      });
+      return;
+    }
+
     try {
       const response = await login(loginId, password);
       const userId = response.data.userId;

@@ -16,7 +16,7 @@ export default function MyInfo() {
     <div className="w-full text-black h-full bg-bg pt-[110px] flex justify-center">
       <div className="w-[600px] bg-white rounded-xl shadow-md px-10 py-8 text-center">
         <h2 className="text-lg font-semibold mb-1">
-          <span className="text-darkSky">SOPT</span> 회원 조회하기
+          <p>내 정보(닉네임) 조회</p>
         </h2>
         <hr className='my-5'/>
 
