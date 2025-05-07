@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { FaRotateRight } from 'react-icons/fa6';
 
 import SearchBar from '../components/common/SearchBar';
@@ -11,6 +11,21 @@ export default function Search() {
   const [error, setError] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    const fetchInitialData = async () => {
+      try {
+        const result = await fetchAllMembers();
+        setMembers(result);
+        setError('');
+      } catch (err) {
+        setMembers([]);
+        setError((err as Error).message);
+      }
+    };
+  
+    fetchInitialData();
+  }, []);
+  
   const handleSearch = async () => {
     try {
       const result = await fetchAllMembers(keyword);
@@ -22,17 +37,11 @@ export default function Search() {
     }
   };
 
-  const handleReset = async () => {
-    try {
-      setKeyword('');
-      inputRef.current?.focus();
-      const result = await fetchAllMembers();
-      setMembers(result);
-      setError('');
-    } catch (err) {
-      setMembers([]);
-      setError((err as Error).message);
-    }
+  const handleReset = () => {
+    setKeyword('');
+    setMembers([]);
+    setError('');
+    inputRef.current?.focus();
   };
 
   return (
@@ -79,6 +88,12 @@ export default function Search() {
           </ul>
         </div>
       </div>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-6 right-6 bg-darkSky text-white px-4 py-2 rounded-full shadow-md hover:bg-darkSky-hover active:bg-darkSky-active text-sm"
+      >
+        TOP
+      </button>
     </div>
   );
 }
