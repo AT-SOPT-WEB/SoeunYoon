@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { UserProvider } from './context/UserContext';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import MainView from './layouts/MainView';
@@ -15,14 +16,16 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <Suspense
-      fallback={
-        <MainView className="flex h-screen w-full items-center justify-center">
-          <LoopLoading />
-        </MainView>
-      }
-    >
-      <RouterProvider router={router} />
-    </Suspense>
+    <UserProvider>
+      <Suspense
+        fallback={
+          <MainView className="flex h-screen w-full items-center justify-center">
+            <LoopLoading />
+          </MainView>
+        }
+      >
+        <RouterProvider router={router} />
+      </Suspense>
+    </UserProvider>
   );
 }

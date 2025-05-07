@@ -23,7 +23,8 @@ export default function Input({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="pl-3 pr-4 py-2.5 text-xs text-zinc-700 bg-white rounded-md outline outline-[0.7px] outline-zinc-200 placeholder:text-zinc-500"
+        className="pl-3 pr-4 py-2.5 text-xs text-zinc-700 bg-white rounded-md outline outline-[0.7px] outline-zinc-200 placeholder:text-zinc-500
+                  focus:outline-none focus:ring-2 focus:ring-darkSky focus:border-transparent"
       />
     </div>
   );
