@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { IoMenu } from 'react-icons/io5';
+import { IoMenu, IoClose } from 'react-icons/io5';
 import Logo from '../assets/logo.png';
 import Profile from '../assets/profile.jpg';
 import { useUser } from '../context/UserContext';
@@ -55,8 +55,11 @@ export default function Header() {
         </span>
       </nav>
 
-      <button className="md:hidden text-2xl text-darkSky" onClick={() => setMenuOpen(!menuOpen)}>
-        <IoMenu />
+      <button
+        className="md:hidden text-2xl text-darkSky"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <IoClose /> : <IoMenu />}
       </button>
 
       <div className="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-lightSky">
@@ -65,7 +68,13 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div className="absolute top-[60px] right-4 bg-white border border-gray-200 text-black shadow-md rounded-md flex flex-col w-40 py-2 z-50 md:hidden">
+        <div
+          className={`
+            absolute top-[60px] right-4 w-40 py-2 z-50 md:hidden
+            bg-white border border-gray-200 shadow-md rounded-md flex flex-col text-black
+            animate-fade-in
+          `}
+        >
           <button
             className="px-4 py-2 text-left text-sm hover:bg-lightSky"
             onClick={() => {
@@ -95,6 +104,7 @@ export default function Header() {
           </button>
         </div>
       )}
+
     </header>
   );
 }
