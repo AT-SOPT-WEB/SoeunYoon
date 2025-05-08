@@ -43,32 +43,21 @@ export default {
         inherit: 'inherit',
       },
     },
-    animation: {
-      'slide-fade-in-dropdown': 'slide-fade-in-dropdown-animation 0.4s ease',
-      'slide-fade-out-dropdown': 'slide-fade-out-dropdown-animation 0.4s ease',
-      spin: 'spin 1.3s linear infinite',
-    },
+
     keyframes: {
-      'slide-fade-in-dropdown-animation': {
+      'slide-fade-in': {
         '0%': {
-          transform: 'translateY(-10%)',
+          opacity: '0',
+          transform: 'translateY(-20px)',
         },
         '100%': {
+          opacity: '1',
           transform: 'translateY(0)',
         },
       },
-      'slide-fade-out-dropdown-animation': {
-        '0%': {
-          transform: 'translateY(0)',
-        },
-        '100%': {
-          transform: 'translateY(-10%)',
-        },
-      },
-      spin: {
-        '0%': { transform: 'rotate(0deg)' },
-        '100%': { transform: 'rotate(360deg)' },
-      },
+    },
+    animation: {
+      'slide-fade-in': 'slide-fade-in 0.4s ease-out forwards',
     },
   },
   plugins: [],

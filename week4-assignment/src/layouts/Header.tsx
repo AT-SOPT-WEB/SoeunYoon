@@ -68,43 +68,49 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <div
-          className={`
-            absolute top-[60px] right-4 w-40 py-2 z-50 md:hidden
-            bg-white border border-gray-200 shadow-md rounded-md flex flex-col text-black
-            animate-fade-in
-          `}
-        >
+      <div
+        className={`
+          fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center
+          animate-slide-fade-in
+        `}
+      >
           <button
-            className="px-4 py-2 text-left text-sm hover:bg-lightSky"
-            onClick={() => {
-              navigate('/mypage/Info');
-              setMenuOpen(false);
-            }}
+            className="absolute top-5 right-5 text-3xl text-darkSky"
+            onClick={() => setMenuOpen(false)}
           >
-            내 정보
+            <IoClose />
           </button>
-          <button
-            className="px-4 py-2 text-left text-sm hover:bg-lightSky"
-            onClick={() => {
-              navigate('/mypage/search');
-              setMenuOpen(false);
-            }}
-          >
-            SOPT 회원 조회
-          </button>
-          <button
-            className="px-4 py-2 text-left text-sm hover:bg-lightSky"
-            onClick={() => {
-              handleLogout();
-              setMenuOpen(false);
-            }}
-          >
-            로그아웃
-          </button>
+          <nav className="flex flex-col gap-8 text-lg text-black text-center">
+            <button
+              className="hover:text-darkSky"
+              onClick={() => {
+                navigate('/mypage/Info');
+                setMenuOpen(false);
+              }}
+            >
+              내 정보
+            </button>
+            <button
+              className="hover:text-darkSky"
+              onClick={() => {
+                navigate('/mypage/search');
+                setMenuOpen(false);
+              }}
+            >
+              SOPT 회원 조회
+            </button>
+            <button
+              className="hover:text-darkSky"
+              onClick={() => {
+                handleLogout();
+                setMenuOpen(false);
+              }}
+            >
+              로그아웃
+            </button>
+          </nav>
         </div>
       )}
-
     </header>
   );
 }
