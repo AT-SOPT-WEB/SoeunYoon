@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { FaRotateRight } from 'react-icons/fa6';
 
 import SearchBar from '../components/common/SearchBar';
@@ -10,21 +10,6 @@ export default function Search() {
   const [members, setMembers] = useState<{ nickname: string }[]>([]);
   const [error, setError] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        const result = await fetchAllMembers();
-        setMembers(result);
-        setError('');
-      } catch (err) {
-        setMembers([]);
-        setError((err as Error).message);
-      }
-    };
-  
-    fetchInitialData();
-  }, []);
   
   const handleSearch = async () => {
     try {
