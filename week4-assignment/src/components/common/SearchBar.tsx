@@ -1,16 +1,7 @@
 import { forwardRef, useState } from 'react';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
-import type { ChangeEvent, KeyboardEvent, ForwardedRef } from 'react';
-
-interface SearchBarProps {
-  name: string;
-  placeholder?: string;
-  width?: string;
-  height?: string;
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onEnter?: () => void;
-}
+import type { KeyboardEvent, ForwardedRef } from 'react';
+import { SearchBarProps } from '../../types';
 
 const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
   (

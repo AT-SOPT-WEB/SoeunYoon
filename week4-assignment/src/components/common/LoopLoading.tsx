@@ -1,6 +1,6 @@
 interface LoopLoadingProps {
-    size?: number;
-  }
+  size?: number;
+}
   
   export default function LoopLoading({ size = 200 }: LoopLoadingProps) {
     return (

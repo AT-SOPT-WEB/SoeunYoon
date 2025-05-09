@@ -1,16 +1,4 @@
-import React from 'react';
-
-type ButtonColor = 'darkSky' | 'normalGray' | 'normalSky';
-
-interface SearchButtonProps {
-  name?: string;
-  onClick?: () => void;
-  className?: string;
-  type?: 'button' | 'submit';
-  color?: ButtonColor;
-  children?: React.ReactNode;
-  disabled?: boolean;
-}
+import { SearchButtonProps, ButtonColor } from '../../types';
 
 export default function SearchButton({
   name = '검색하기',
