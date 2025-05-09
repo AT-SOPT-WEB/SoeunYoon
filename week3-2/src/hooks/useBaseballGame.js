@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { generateAnswer, getBaseballResult, isValidInput } from '../utils/baseball';
 
+const COUNTDOWN_SECONDS = 3;
+
 export default function useBaseballGame() {
   const [answer, setAnswer] = useState(generateAnswer());
   const [tries, setTries] = useState([]);
@@ -8,7 +10,6 @@ export default function useBaseballGame() {
   const [countdown, setCountdown] = useState(null);
   const timerRef = useRef(null);
 
-  // 게임 초기화
   const resetGame = () => {
     setAnswer(generateAnswer());
     setTries([]);
@@ -16,9 +17,8 @@ export default function useBaseballGame() {
     setCountdown(null);
   };
 
-  // 3초 카운트다운 시작 (게임 종료 후)
   const startCountdown = () => {
-    setCountdown(3);
+    setCountdown(COUNTDOWN_SECONDS);
     timerRef.current = setInterval(() => {
       setCountdown(prev => {
         if (prev === 1) {
@@ -31,7 +31,6 @@ export default function useBaseballGame() {
     }, 1000);
   };
 
-  // 숫자 입력 처리
   const handleTry = (input) => {
     if (!isValidInput(input)) {
       setMessage('⚠️ 서로 다른 숫자 3자리를 입력해주세요!');
@@ -48,7 +47,7 @@ export default function useBaseballGame() {
       setMessage('🎉 정답입니다! 게임을 다시 시작합니다.');
       startCountdown();
     } else if (updatedTries.length >= 10) {
-      setMessage(`💥 10번 실패! 정답은 ${answer} 입니다. 게임이 3초 뒤 초기화됩니다.`);
+      setMessage(`💥 10번 실패! 정답은 ${answer} 입니다. 게임이 ${COUNTDOWN_SECONDS}초 뒤 초기화됩니다.`);
       startCountdown();
     } else {
       setMessage(`${strike} 스트라이크 ${ball} 볼`);
