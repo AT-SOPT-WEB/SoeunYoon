@@ -3,7 +3,6 @@ import { useState } from 'react';
 export default function Input({
   placeholder = '',
   onSubmit,
-  resetAfterSubmit = true,
   maxLength,
   type = 'text',
   className = '',
@@ -14,7 +13,7 @@ export default function Input({
     if (e.key === 'Enter' && value.trim()) {
       e.preventDefault();
       onSubmit(value.trim());
-      if (resetAfterSubmit) setValue('');
+      setValue('');
     }
   };
 
