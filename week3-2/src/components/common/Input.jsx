@@ -1,4 +1,3 @@
-// components/common/Input.jsx
 import { useState } from 'react';
 
 export default function Input({
