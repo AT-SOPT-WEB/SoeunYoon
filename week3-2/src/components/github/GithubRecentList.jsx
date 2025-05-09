@@ -1,8 +1,6 @@
-// components/github/GithubRecentList.jsx
-
 export default function GithubRecentList({ recent, onSelect, onRemove }) {
     return (
-      <div className="flex flex-row-reverse flex-wrap gap-2 mt-3 justify-end">
+      <div className="flex flex-row flex-wrap gap-2 mt-3">
         {[...recent].reverse().map(user => (
           <span
             key={user}
