@@ -4,6 +4,9 @@ import { IoMenu, IoClose } from 'react-icons/io5';
 import Logo from '../assets/logo.png';
 import Profile from '../assets/profile.jpg';
 import { useUser } from '../context/UserContext';
+import MobileMenu from './MobileMenu';
+import { logout } from '../utils/auth';
+import { NAV_ITEMS } from '../constants/navigation';
 
 export default function Header() {
   const location = useLocation();
@@ -14,9 +17,7 @@ export default function Header() {
   const isActive = (path: string) => location.pathname === path;
 
   const handleLogout = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('userId');
-    navigate('/login');
+    logout(navigate);
   };
 
   return (
@@ -27,26 +28,19 @@ export default function Header() {
       </div>
 
       <nav className="hidden md:flex gap-10 text-sm">
-        <span
-          onClick={() => navigate('/mypage/Info')}
-          className={`underline cursor-pointer ${
-            isActive('/mypage/Info')
-              ? 'text-darkSky font-semibold'
-              : 'text-black hover:text-darkSky-hover active:text-darkSky-active'
-          }`}
-        >
-          내 정보
-        </span>
-        <span
-          onClick={() => navigate('/mypage/search')}
-          className={`underline cursor-pointer ${
-            isActive('/mypage/search')
-              ? 'text-darkSky font-semibold'
-              : 'text-black hover:text-darkSky-hover active:text-darkSky-active'
-          }`}
-        >
-          SOPT 회원 조회
-        </span>
+        {NAV_ITEMS.map(({ label, path }) => (
+          <span
+            key={path}
+            onClick={() => navigate(path)}
+            className={`underline cursor-pointer ${
+              isActive(path)
+                ? 'text-darkSky font-semibold'
+                : 'text-black hover:text-darkSky-hover active:text-darkSky-active'
+            }`}
+          >
+            {label}
+          </span>
+        ))}
         <span
           onClick={handleLogout}
           className="underline cursor-pointer text-black hover:text-darkSky-hover active:text-darkSky-active"
@@ -68,48 +62,14 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-      <div
-        className={`
-          fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center
-          animate-slide-fade-in
-        `}
-      >
-          <button
-            className="absolute top-5 right-5 text-3xl text-darkSky"
-            onClick={() => setMenuOpen(false)}
-          >
-            <IoClose />
-          </button>
-          <nav className="flex flex-col gap-8 text-lg text-black text-center">
-            <button
-              className="hover:text-darkSky"
-              onClick={() => {
-                navigate('/mypage/Info');
-                setMenuOpen(false);
-              }}
-            >
-              내 정보
-            </button>
-            <button
-              className="hover:text-darkSky"
-              onClick={() => {
-                navigate('/mypage/search');
-                setMenuOpen(false);
-              }}
-            >
-              SOPT 회원 조회
-            </button>
-            <button
-              className="hover:text-darkSky"
-              onClick={() => {
-                handleLogout();
-                setMenuOpen(false);
-              }}
-            >
-              로그아웃
-            </button>
-          </nav>
-        </div>
+        <MobileMenu
+          onClose={() => setMenuOpen(false)}
+          onNavigate={navigate}
+          onLogout={() => {
+            handleLogout();
+            setMenuOpen(false);
+          }}
+        />
       )}
     </header>
   );

@@ -9,7 +9,7 @@ export default function Input({
 }: InputProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-xs font-semibold text-zinc-800">{label}</label>
+      <label className="text-xs font-semibold text-black">{label}</label>
       <input
         type={type}
         placeholder={placeholder}
